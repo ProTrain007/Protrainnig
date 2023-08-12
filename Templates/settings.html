@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Settings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            padding: 20px;
+        }
+        .settings-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .settings-form {
+            margin-bottom: 10px;
+        }
+        .settings-form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .settings-form input[type="text"],
+        .settings-form input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .save-button {
+            display: block;
+            text-align: center;
+        }
+        .danger-button {
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="settings-container">
+        <h1>Settings</h1>
+        <form class="settings-form" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="{{ user_info.name }}" required>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" value="{{ user_info.address }}" required>
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" value="{{ user_info.dob }}" required>
+            <label for="country">Country of Origin:</label>
+            <input type="text" id="country" name="country" value="{{ user_info.country }}" required>
+            <div class="save-button">
+                <input type="submit" value="Save Changes">
+            </div>
+        </form>
+        <hr>
+        <form class="settings-form" method="post" action="{{ url_for('change_credentials') }}">
+            <h2>Change Username and Password</h2>
+            <label for="new_username">New Username:</label>
+            <input type="text" id="new_username" name="new_username" required>
+            <label for="new_password">New Password:</label>
+            <input type="password" id="new_password" name="new_password" required>
+            <div class="save-button">
+                <input type="submit" value="Change Credentials" class="danger-button">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
