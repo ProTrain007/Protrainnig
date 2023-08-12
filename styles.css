@@ -16,30 +16,63 @@ header {
   padding: 1rem 0;
 }
 
-nav ul {
-  list-style: none;
-  padding: 0;
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(45deg, transparent, transparent 30px, #ff7700 30px, #ff7700 60px);
+  animation: move 10s linear infinite;
+  z-index: -1;
+}
+
+@keyframes move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 1000px 1000px;
+  }
+}
+
+.container {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+form {
   display: flex;
-  justify-content: center;
-  background-color: #444;
+  flex-direction: column;
 }
 
-nav li {
-  margin: 0 1rem;
+label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 }
 
-nav a {
+input {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+button {
+  padding: 0.5rem;
+  background-color: #333;
   color: white;
-  text-decoration: none;
-  transition: color 0.3s;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
 }
 
-nav a:hover {
-  color: #88c;
-}
-
-.main-content {
-  padding: 2rem;
+button:hover {
+  background-color: #555;
 }
 
 footer {
